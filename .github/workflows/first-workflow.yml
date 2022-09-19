@@ -15,4 +15,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Check for EXPO_TOKEN
-        run: echo "GITHUB_RUN_NUMBER $GITHUB_RUN_NUMBER. GITHUB_RUN_ATTEMPT $GITHUB_RUN_ATTEMPT!"
+        run: echo "GITHUB_RUN_NUMBER $GITHUB_RUN_NUMBER"
