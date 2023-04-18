@@ -1,8 +1,10 @@
-name: Build & Deploy TestFlight iOS
+name: Sample workflow
 
 on:
-  release:
-    types: published
+  push:
+    branches:
+      - '**'
+      - '!main'
 
 
   # Allows you to run this workflow manually from the Actions tab
@@ -11,7 +13,10 @@ on:
 jobs:
   echo_build:
     name: print
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Check for EXPO_TOKEN
         run: echo "Running on release published- GITHUB_RUN_NUMBER $GITHUB_RUN_NUMBER. GITHUB_RUN_ATTEMPT $GITHUB_RUN_ATTEMPT!"
+      - name: test nw
+        run: curl -o - -I https://apply-api.missionlane-dev.com/api/v2/flow/offer/invite-code/MLSCLBO0005
+        shell: bash
